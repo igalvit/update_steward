@@ -1,7 +1,7 @@
 from os import listdir, path
-from package_updater.debian_updater import DebianUpdater, Updater
-from script_runner.script_runner import ScriptRunner
-from system_restarter.system_restarter import SystemRestarter
+from update_steward.package_updater.debian_updater import DebianUpdater, Updater
+from update_steward.script_runner.script_runner import ScriptRunner
+from update_steward.system_restarter.system_restarter import SystemRestarter
 
 # system_package_updater = Updater(DebianUpdater)
 # system_package_updater.update_system()

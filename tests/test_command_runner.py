@@ -1,9 +1,7 @@
-
-
 from subprocess import CompletedProcess
 import unittest
 from unittest.mock import patch
-from command_runner.command_runner import CommandRunner
+from update_steward.command_runner.command_runner import CommandRunner
 from typing import List
 
 class TestCommandRunner(unittest.TestCase):
@@ -16,7 +14,7 @@ class TestCommandRunner(unittest.TestCase):
         self.assertEqual(cr.stderr, '')
         self.assertEqual(cr.stdout, '')
 
-    @patch('command_runner.command_runner.run')
+    @patch('update_steward.command_runner.command_runner.run')
     def test_exec_command(self, mock_subprocess_run):
         fake_command: List[str] = ['two']
         cr = CommandRunner(fake_command)

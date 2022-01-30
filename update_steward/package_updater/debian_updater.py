@@ -1,8 +1,8 @@
-from package_updater.updater import Updater
-from command_runner.command_runner import CommandRunner
+from update_steward.package_updater.updater import Updater
+from update_steward.command_runner.command_runner import CommandRunner
 
 class DebianUpdater(Updater):
-    def update_system(self):
+    def update_system(self) -> None:
         cr = CommandRunner(["apt", "update"])
         cr.exec_command()
         if cr.return_code != 0:

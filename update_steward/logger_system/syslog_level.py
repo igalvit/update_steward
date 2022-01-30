@@ -1,6 +1,6 @@
 from enum import Enum, unique, auto
 from typing import Any
-from logger_system.log_level import LogLevel
+from update_steward.logger_system.log_level import LogLevel
 import syslog
 
 @unique
