@@ -1,8 +1,8 @@
+from logger_system.log_level import LogLevel
 from logger_system.logger import Logger
-from logger_system.syslog_level import SyslogLevel
 import syslog
 
 class SyslogLogger(Logger):
 
-    def write_to_log(self, level: SyslogLevel, message: str):
+    def write_to_log(self, level: LogLevel, message: str):
         syslog.syslog(level, message)

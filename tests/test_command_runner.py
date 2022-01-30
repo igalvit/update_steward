@@ -24,9 +24,9 @@ class TestCommandRunner(unittest.TestCase):
             CompletedProcess(args=fake_command,returncode=0,stderr=b'',stdout=b'Command executed')
         mock_subprocess_run.return_value = mock_result
         cr.exec_command()
-        self.assertEquals(cr.return_code, mock_result.returncode)
-        self.assertEquals(cr.stderr, mock_result.stderr.decode('utf8'))
-        self.assertEquals(cr.stdout, mock_result.stdout.decode('utf8'))
+        self.assertEqual(cr.return_code, mock_result.returncode)
+        self.assertEqual(cr.stderr, mock_result.stderr.decode('utf8'))
+        self.assertEqual(cr.stdout, mock_result.stdout.decode('utf8'))
 
 
 if __name__ == '__main__':
