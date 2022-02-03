@@ -1,7 +1,9 @@
 from os import listdir, path
-from update_steward.package_updater.debian_updater import DebianUpdater, Updater
-from update_steward.script_runner.script_runner import ScriptRunner
-from update_steward.system_restarter.system_restarter import SystemRestarter
+# from update_steward.package_updater.debian_updater import DebianUpdater, Updater
+# from update_steward.script_runner.script_runner import ScriptRunner
+# from update_steward.system_restarter.system_restarter import SystemRestarter
+from version_checker.version_checker import VersionChecker
+
 
 # system_package_updater = Updater(DebianUpdater)
 # system_package_updater.update_system()
@@ -16,3 +18,6 @@ from update_steward.system_restarter.system_restarter import SystemRestarter
 #     exit(0)
 
 
+
+vc = VersionChecker()
+print(vc.search_release_file())
