@@ -1,4 +1,5 @@
 from abc import ABC, abstractclassmethod
+
 from update_steward.logger_system.log_level import LogLevel
 
 

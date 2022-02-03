@@ -2,8 +2,9 @@ from asyncio.subprocess import PIPE
 from cmath import e
 from distutils import command
 from distutils.log import error
-from subprocess import CompletedProcess, run, PIPE
+from subprocess import PIPE, CompletedProcess, run
 from typing import List
+
 
 class CommandRunner:
 
@@ -12,9 +13,10 @@ class CommandRunner:
         self.return_code: int = 999
         self.stdout: str = ''
         self.stderr: str = ''
-    
+
     def exec_command(self) -> None:
-        result: CompletedProcess['bytes'] = run(self.command_to_run, capture_output=True)
+        result: CompletedProcess['bytes'] = run(
+            self.command_to_run, capture_output=True)
         self.stdout = result.stdout.decode("utf-8")
         self.stderr = result.stderr.decode("utf-8")
         self.return_code = result.returncode

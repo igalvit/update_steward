@@ -1,7 +1,9 @@
-from enum import Enum, unique, auto
-from typing import Any
-from update_steward.logger_system.log_level import LogLevel
 import syslog
+from enum import Enum, auto, unique
+from typing import Any
+
+from update_steward.logger_system.log_level import LogLevel
+
 
 @unique
 class SyslogLevel(LogLevel):

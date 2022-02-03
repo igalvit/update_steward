@@ -1,4 +1,5 @@
-from enum import unique, Enum
+from enum import Enum, unique
+
 
 @unique
 class LogLevel(Enum):

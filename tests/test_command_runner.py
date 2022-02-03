@@ -1,8 +1,10 @@
-from subprocess import CompletedProcess
 import unittest
-from unittest.mock import patch
-from update_steward.command_runner.command_runner import CommandRunner
+from subprocess import CompletedProcess
 from typing import List
+from unittest.mock import patch
+
+from update_steward.command_runner.command_runner import CommandRunner
+
 
 class TestCommandRunner(unittest.TestCase):
 
@@ -19,7 +21,8 @@ class TestCommandRunner(unittest.TestCase):
         fake_command: List[str] = ['two']
         cr = CommandRunner(fake_command)
         mock_result: CompletedProcess['bytes'] = \
-            CompletedProcess(args=fake_command,returncode=0,stderr=b'',stdout=b'Command executed')
+            CompletedProcess(args=fake_command, returncode=0,
+                             stderr=b'', stdout=b'Command executed')
         mock_subprocess_run.return_value = mock_result
         cr.exec_command()
         self.assertEqual(cr.return_code, mock_result.returncode)
