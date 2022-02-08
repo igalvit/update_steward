@@ -1,8 +1,13 @@
+from distutils.log import INFO
 from os import listdir, path
+from update_steward.logger_system.log_level import LogLevel
 # from update_steward.package_updater.debian_updater import DebianUpdater, Updater
 # from update_steward.script_runner.script_runner import ScriptRunner
 # from update_steward.system_restarter.system_restarter import SystemRestarter
 from version_checker.version_checker import VersionChecker
+from logger_system.syslog_logger import SyslogLogger
+from logger_system.syslog_level import SyslogLevel
+
 
 
 # system_package_updater = Updater(DebianUpdater)
@@ -18,6 +23,13 @@ from version_checker.version_checker import VersionChecker
 #     exit(0)
 
 
+sl = SyslogLogger()
 
+sl.write_to_log(SyslogLevel.INFO, "Starting the program.")
+sl.write_to_log(SyslogLevel.INFO, "Checking if system is Linux.")
 vc = VersionChecker()
-print(vc.search_release_file())
+if (vc.is_linux):
+    linux_version = vc.search_release_file()
+    sl.write_to_log(SyslogLevel.INFO("System is %" % linux_version))
+else:
+    exit(1)
